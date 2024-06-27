@@ -1,18 +1,18 @@
 import { Book } from './book';
 
 export class Biblioteca {
-     libros: Book[] = [];
+    libros: Book[] = [];
 
     agregarLibro(libro: Book): void {
         this.libros.push(libro);
     }
 
-    buscarLibro(titulo: string): Book | undefined {
-        return this.libros.find(libro => libro.titulo === titulo);
+    buscarLibro(isbn: string): Book | undefined {
+        return this.libros.find(libro => libro.isbn === isbn);
     }
 
-    eliminarLibro(titulo: string): boolean {
-        const indice = this.libros.findIndex(libro => libro.titulo === titulo);
+    eliminarLibro(isbn: string): boolean {
+        const indice = this.libros.findIndex(libro => libro.isbn === isbn);
         if (indice !== -1) {
             this.libros.splice(indice, 1);
             return true;
@@ -24,4 +24,3 @@ export class Biblioteca {
         return this.libros;
     }
 }
-
